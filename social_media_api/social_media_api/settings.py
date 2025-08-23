@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['localhost','127.0.0.1]
 
 
 # Application definition
-
+PORT
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -151,4 +151,5 @@ SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_SSL_REDIRECT = False 
+
 
