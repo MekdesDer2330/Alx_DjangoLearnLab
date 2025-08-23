@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
 from .serializers import UserRegistrationSerializer, UserSerializer
 from .models import CustomUser
-
+generics.GenericAPIView", "permissions.IsAuthenticated", "CustomUser.objects.all()
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def register_view(request):
@@ -97,4 +97,5 @@ def unfollow_user(request, user_id):
     user_to_unfollow = get_object_or_404(CustomUser, id=user_id)
     request.user.following.remove(user_to_unfollow)
     return Response({'message': f'You have unfollowed {user_to_unfollow.username}'})
+
 
