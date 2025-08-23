@@ -8,7 +8,7 @@ from .models import Like, Post, Comment,Like
 from notifications.models import Notification
 from django.contrib.contenttypes.models import ContentType
 from .serializers import PostSerializer, CommentSerializer
-
+generics.get_object_or_404(Post, pk=pk)
 class IsOwnerOrReadOnly(permissions.BasePermission):
     """
     Custom permission to only allow owners of an object to edit/delete it.
@@ -69,4 +69,5 @@ def feed_view(request):
     following_users = request.user.following.all()
     feed_posts = Post.objects.filter(author__in=following_users).order_by('-created_at')
     serializer = PostSerializer(feed_posts, many=True)
+
     return Response(serializer.data)
